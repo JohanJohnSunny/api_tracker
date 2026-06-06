@@ -1,4 +1,5 @@
 import os
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -12,8 +13,10 @@ def get_weather(city_name):
         "appid":API_KEY,
         "units":"metric"
     }
-    
 
+    print(f"Sending request to the server for city {city_name}")
+
+    response = requests.get(url = BASE_URL,params = query_parameters)
 
 
 
