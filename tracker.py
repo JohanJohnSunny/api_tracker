@@ -21,11 +21,16 @@ def get_weather(city_name):
 
     data = response.json()
     print("\n--- RAW JSON DATA RECEIVED FROM SERVER ---")
-    print(data)
+    for key,value in data.items():
+        print(key,":",value)
     print("------------------------------------------\n")
 
 
 
 
 if __name__ == "__main__":
-    get_weather("london")
+    if not API_KEY:
+        print("Error: WEATHER_API_KEY missing from .env file!")
+    else:
+        # Test it with a major city!
+        get_weather("London")
